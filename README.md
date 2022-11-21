@@ -10,7 +10,7 @@ https://github.com/Sergeich7/BuyWithStripe
 Адрес сайта:
 http://buywithstripe.artgallery-tatyana.ru/
 
-Адмика:
+Админка:
 http://buywithstripe.artgallery-tatyana.ru/admin/
 
 Также можно запустить приложение в контейнере
