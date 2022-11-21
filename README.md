@@ -14,7 +14,7 @@ http://buywithstripe.artgallery-tatyana.ru/
 Адмика:
 http://buywithstripe.artgallery-tatyana.ru/admin/
 
-Так-же можно запустить приложение в контейнере
+Также можно запустить приложение в контейнере
 
 git clone https://github.com/Sergeich7/BuyWithStripe.git
 cd BuyWithStripe
