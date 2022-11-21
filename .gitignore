@@ -1,3 +1,10 @@
+Материалы/
+migrations/
+.env
+.restart-app
+passenger_wsgi.py
+ttt.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
