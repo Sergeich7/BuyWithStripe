@@ -1,7 +1,9 @@
 # other
 Материалы/
-.env
+migrations/
+passenger_wsgi.py
 ttt.py
+.restart-app
 
 
 # Git

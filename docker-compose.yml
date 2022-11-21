@@ -2,10 +2,12 @@ version: '2.12'
 
 services:
     app:
-        container_name: botApp
+        container_name: BuyWithStripe
         env_file:
             - .env
         build: .
-        restart: always
+        ports:
+            - "8000:8000"
+        restart: "no"
 
 
