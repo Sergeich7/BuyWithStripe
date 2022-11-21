@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.db import models
 
 
-class СurrencyUSDRate(models.Model):
+class CurrencyUSDRate(models.Model):
     name = models.CharField(max_length=3)
     rate = models.FloatField(verbose_name='Курс к USD')
 
@@ -20,7 +20,7 @@ class Item(models.Model):
     description = models.CharField(max_length=250, verbose_name='Описание')
     price = models.FloatField(verbose_name='Цена')
     currency = models.ForeignKey(
-        СurrencyUSDRate, on_delete=models.CASCADE,
+        CurrencyUSDRate, on_delete=models.CASCADE,
         related_name="currency", verbose_name='Валюта')
 
     def __str__(self):

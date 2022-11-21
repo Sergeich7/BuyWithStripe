@@ -5,8 +5,8 @@ import items.models as models
 admin.site.site_header = 'Товары'
 admin.site.site_title = 'Товары'
 
-@admin.register(models.СurrencyUSDRate)
-class СurrencyUSDRateAdmin(admin.ModelAdmin):
+@admin.register(models.CurrencyUSDRate)
+class CurrencyUSDRate(admin.ModelAdmin):
     list_display = ('name', 'rate')
     list_display_links = ('name',)
     ordering = ('name',)

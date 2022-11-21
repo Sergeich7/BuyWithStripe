@@ -7,7 +7,7 @@ from django.db.models import F, Value, Sum
 
 import stripe
 
-from .models import Item, СurrencyUSDRate
+from .models import Item, CurrencyUSDRate
 from project.settings import STRIPE_SK, STRIPE_PK
 
 
@@ -15,7 +15,7 @@ def get_products_queryset(pk_list, **kwargs):
     pk_filter = ({'pk__in': pk_list} if pk_list else {'pk__gte': '0'})
     print(pk_filter)
     if kwargs.get('currency'):
-        current_currency_rate = СurrencyUSDRate.objects.\
+        current_currency_rate = CurrencyUSDRate.objects.\
             filter(name=kwargs.get('currency')).first().rate
         return Item.objects.all().filter(**pk_filter).\
             annotate(current_currency=Value(kwargs.get('currency'))).\
@@ -121,7 +121,7 @@ class IndexListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['current_currency'] = self.current_currency
-        context['currency'] = СurrencyUSDRate.objects.all().order_by('name')
+        context['currency'] = CurrencyUSDRate.objects.all().order_by('name')
         return context
 
 
