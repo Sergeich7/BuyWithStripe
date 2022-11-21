@@ -9,6 +9,7 @@ import stripe
 
 from .models import Item, CurrencyUSDRate
 from project.settings import STRIPE_SK, STRIPE_PK
+from project.settings import STRIPE_SUCCESS_URL, STRIPE_CANCEL_URL
 
 
 def get_products_queryset(pk_list, **kwargs):
@@ -57,8 +58,8 @@ def create_stripe_session(pk_list, **kwargs):
         mode='payment',
         locale='ru',
         discounts=di,
-        success_url='http://localhost:8000/success/',
-        cancel_url='http://localhost:8000/cancel/',
+        success_url=STRIPE_SUCCESS_URL,
+        cancel_url=STRIPE_CANCEL_URL,
         tax_id_collection={'enabled': True},
     )
     stripe.api_key = STRIPE_SK
