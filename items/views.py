@@ -12,14 +12,17 @@ from project.settings import STRIPE_SK, STRIPE_PK
 
 
 def get_products_queryset(pk_list, **kwargs):
+    """Создаю queryset с необходимыми полями."""
+    # если pk_list пустой, то возвращаем все товары
     pk_filter = ({'pk__in': pk_list} if pk_list else {'pk__gte': '0'})
-    print(pk_filter)
     if kwargs.get('currency'):
+        # если задана валюта, то добавляем поле валюта и цена в этой валюте
         current_currency_rate = CurrencyUSDRate.objects.\
             filter(name=kwargs.get('currency')).first().rate
         return Item.objects.all().filter(**pk_filter).\
             annotate(current_currency=Value(kwargs.get('currency'))).\
             annotate(currency_price=current_currency_rate*F('price')/F('currency__rate'))
+    # если не задана валюта, то добавляем поле валюта и цена в валюте товара
     return Item.objects.all().filter(**pk_filter).\
         annotate(current_currency=F('currency__name')).\
         annotate(currency_price=F('price'))
@@ -83,18 +86,18 @@ class IndexListView(ListView):
                 # выбрано >1 товара
                 if request.POST.get('buy_ident'):
                     # платеж методом PaymentIntent
-
-                    # рассчитываем сумму платежа и валюту
-                    products = get_products_queryset(pk_list, currency=self.current_currency)
-                    order_amount = int(products.\
-                        aggregate(Sum('currency_price'))['currency_price__sum'])*100
-
                     # получаем покупателя
                     email = request.POST.get('email')
                     stripe.api_key = STRIPE_SK
                     customer_data = stripe.Customer.list(email=email).data
 
                     if len(customer_data) > 0:
+                        # рассчитываем сумму платежа
+                        products = get_products_queryset(
+                            pk_list, currency=self.current_currency)
+                        order_amount = int(products.aggregate(
+                            Sum('currency_price'))['currency_price__sum'])*100
+
                         # производим оплату
                         res = stripe.PaymentIntent.create(
                             customer=customer_data[0], amount=order_amount,

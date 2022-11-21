@@ -5,6 +5,7 @@ import items.models as models
 admin.site.site_header = 'Товары'
 admin.site.site_title = 'Товары'
 
+
 @admin.register(models.CurrencyUSDRate)
 class CurrencyUSDRate(admin.ModelAdmin):
     list_display = ('name', 'rate')
