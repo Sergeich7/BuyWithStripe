@@ -1,0 +1,26 @@
+u1791057
+uA6zV2rW0l
+source buywithstripe/bin/activate
+cd www/buywithstripe.artgallery-tatyana.ru 
+
+
+
+        success_url='http://localhost:8000/success/',
+        cancel_url='http://localhost:8000/cancel/',
+
+
+
+When testing interactively, use a card number, such as 4242 4242 4242 4242. Enter the card number in the Dashboard or in any payment form.
+
+Use a valid future date, such as 12/34.
+Use any three-digit CVC (four digits for American Express cards).
+Use any value you like for other form fields.
+
+
+
+
+
+
+
+http://paywithstripe.artgallery-tatyana.ru/
+https://www.reg.ru/support/hosting-i-servery/yazyki-programmirovaniya-i-skripty/kak-ustanovit-django-na-hosting

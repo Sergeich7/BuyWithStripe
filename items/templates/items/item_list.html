@@ -1,0 +1,41 @@
+<html>
+    <head>
+      <title>List</title>
+    </head>
+    <body>
+        <h1>Все товары</h1>
+        {% if object_list %}
+        <p>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <p>Валюта счета <select name="currency">
+                {% for cur in currency %}
+                    {% if current_currency == cur.name %}
+                        <option selected>{{ cur.name }}</option>
+                    {% else %}
+                        <option>{{ cur.name }}</option>
+                    {%endif%}
+                {% endfor %}
+          </select>
+          <input type="submit" name='change_currency' value="Пересчитать цены">
+        </p>
+            {% csrf_token %}
+            {% for product in object_list %}
+            <p>
+                <input type="checkbox" name="cb-{{ product.pk }}">
+                <a href="{{ product.get_absolute_url }}"><strong>{{ product.title }}</strong> - {{ product.description }} Цена: {{ product.currency_price|floatformat:2 }} {{ current_currency }}</a> (товар в базе {{ product.price }} {{ product.currency }})
+            </p>
+            {% endfor %}
+            <p>Купон <input type="text" name="coupon" value="K3xuEPZV"></p>
+            <p><input type="submit" name='buy_session' value="Buy selected with SESSION URL"> Налог будет удержан автоматически</p>
+            <p><br><hr></p>
+            <p>Customer email <input type="text" name="email" value="test@test.com" size="10" disabled> Покупатель должен быть создан на сайте stripe</p>
+            <p><input type="submit" name='buy_ident' value="Buy selected with PAYMENT IDENT"></p>
+        </form>
+    {% else %}
+        <p>
+            По запросу ничего не найдено
+        </p>
+    {% endif %}
+</body>
+</html>

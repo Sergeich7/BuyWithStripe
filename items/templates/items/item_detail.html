@@ -1,0 +1,32 @@
+<html>
+    <head>
+      <title>Buy {{ object.title }}</title>
+      <script src="https://js.stripe.com/v3/"></script>
+    </head>
+    <body>
+        <h1>{{ object.title }}</h1>
+        <p>{{ object.description }}</p>
+        <p>{{ object.price }}</p>
+        <button id="buy-button">Buy</button>
+        <script type="text/javascript">
+            async function doRequest() {
+                let res = await fetch('/buy/{{ object.pk }}');
+                if (res.ok) {
+                    return res.text();
+                } else {
+                    return `HTTP error: ${res.status}`;
+                }
+            }
+            var stripe = Stripe('{{ STRIPE_PK }}');
+            var buyButton = document.getElementById('buy-button');
+            buyButton.addEventListener('click', function() {
+                doRequest().then(data => {
+                    session = JSON.parse(data)
+//                    console.log(session["id"])
+                    stripe.redirectToCheckout({ sessionId: session["id"] })
+                });
+            });
+        </script>
+        <p>* используя SESSION ID</p>
+    </body>
+</html>

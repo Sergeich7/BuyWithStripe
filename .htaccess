@@ -1,0 +1,5 @@
+<FilesMatch ".(env|py|txt|sqlite3)$">
+
+deny from all
+
+</FilesMatch>
