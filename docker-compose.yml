@@ -9,5 +9,7 @@ services:
         ports:
             - "8137:8000"
         restart: unless-stopped
+        volumes:
+            - .:/app
 
 

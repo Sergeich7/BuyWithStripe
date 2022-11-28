@@ -31,8 +31,7 @@ if os.environ.get('STATE') not in 'DEV':
     STRIPE_SUCCESS_URL = 'http://95.163.243.134:8137/success/'
     STRIPE_CANCEL_URL = 'http://95.163.243.134:8137/cancel/'
     DEBUG = False
-    ALLOWED_HOSTS = ['95.163.243.134',]
-    print(STATIC_ROOT)
+    ALLOWED_HOSTS = ["95.163.243.134"]
 else:
     # DEV
     STRIPE_SUCCESS_URL = 'http://localhost:8000/success/'
@@ -40,6 +39,8 @@ else:
     DEBUG = True
     ALLOWED_HOSTS = []
 #    STATICFILES_DIRS = [BASE_DIR / "static"]
+
+print(STATIC_ROOT)
 
 
 # Application definition
