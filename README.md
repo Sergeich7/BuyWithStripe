@@ -11,9 +11,6 @@ https://github.com/Sergeich7/BuyWithStripe
 Адрес сайта:
 http://95.163.243.134:8137/
 
-Админка:
-http://95.163.243.134:8137/admin/
-
 Также можно запустить приложение в контейнере
 
 git clone https://github.com/Sergeich7/BuyWithStripe.git
@@ -23,7 +20,7 @@ cd BuyWithStripe
 
 Docker:
 docker build . -t buywithstripe
-docker run -d --env-file .env --rm --name BuyWithStripe -p 8000:8000 buywithstripe
+docker run -d --env-file .env --rm --name BuyWithStripe -p 8137:8000 buywithstripe
 
 или Docker compose:
 docker-compose up --build -d
