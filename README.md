@@ -9,10 +9,10 @@
 https://github.com/Sergeich7/BuyWithStripe
 
 Адрес сайта:
-http://buywithstripe.artgallery-tatyana.ru/
+http://95.163.243.134:8137/
 
 Админка:
-http://buywithstripe.artgallery-tatyana.ru/admin/
+http://95.163.243.134:8137/admin/
 
 Также можно запустить приложение в контейнере
 
