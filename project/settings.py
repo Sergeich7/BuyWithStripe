@@ -32,6 +32,7 @@ if os.environ.get('STATE') not in 'DEV':
     DEBUG = False
     ALLOWED_HOSTS = ['95.163.243.134']
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    print(STATIC_ROOT)
 else:
     # DEV
     STRIPE_SUCCESS_URL = 'http://localhost:8000/success/'
