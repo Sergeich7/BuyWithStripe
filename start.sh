@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$STATE" == "DEV" ]; then
-    python manage.py runserver 0.0.0.0:8000 --nostatic
+    python manage.py runserver 0.0.0.0:8000
     exit
 fi
 

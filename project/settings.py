@@ -25,13 +25,13 @@ STRIPE_SK = os.environ.get('STRIPE_SK')
 STRIPE_PK = os.environ.get('STRIPE_PK')
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 if os.environ.get('STATE') not in 'DEV':
     # PRODUCTION
     STRIPE_SUCCESS_URL = 'http://95.163.243.134:8137/success/'
     STRIPE_CANCEL_URL = 'http://95.163.243.134:8137/cancel/'
     DEBUG = False
-    ALLOWED_HOSTS = ['95.163.243.134']
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    ALLOWED_HOSTS = ['95.163.243.134',]
     print(STATIC_ROOT)
 else:
     # DEV
@@ -39,6 +39,8 @@ else:
     STRIPE_CANCEL_URL = 'http://localhost:8000/cancel/'
     DEBUG = True
     ALLOWED_HOSTS = []
+#    STATICFILES_DIRS = [BASE_DIR / "static"]
+
 
 # Application definition
 
