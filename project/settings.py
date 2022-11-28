@@ -30,7 +30,7 @@ if os.environ.get('STATE') not in 'DEV':
     # PRODUCTION
     STRIPE_SUCCESS_URL = 'http://95.163.243.134:8137/success/'
     STRIPE_CANCEL_URL = 'http://95.163.243.134:8137/cancel/'
-    DEBUG = False
+    DEBUG = True
     ALLOWED_HOSTS = ["95.163.243.134"]
 else:
     # DEV
