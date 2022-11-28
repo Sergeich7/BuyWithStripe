@@ -13,6 +13,7 @@ if not os.environ.get('SECRET_KEY'):
     if os.path.exists(os.path.join(BASE_DIR, '.env')):
         load_dotenv(os.path.join(BASE_DIR, '.env'))
 
+
 ############################################
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -23,12 +24,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 STRIPE_SK = os.environ.get('STRIPE_SK')
 STRIPE_PK = os.environ.get('STRIPE_PK')
 
-if 'www' in str(Path(__file__).resolve()):
+
+if os.environ.get('STATE') not in 'DEV':
     # PRODUCTION
-    STRIPE_SUCCESS_URL = 'http://buywithstripe.artgallery-tatyana.ru/success/'
-    STRIPE_CANCEL_URL = 'http://buywithstripe.artgallery-tatyana.ru/cancel/'
+    STRIPE_SUCCESS_URL = 'http://95.163.243.134:8137/success/'
+    STRIPE_CANCEL_URL = 'http://95.163.243.134:8137/cancel/'
     DEBUG = False
-    ALLOWED_HOSTS = ['buywithstripe.artgallery-tatyana.ru']
+    ALLOWED_HOSTS = ['95.163.243.134']
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 else:
     # DEV
