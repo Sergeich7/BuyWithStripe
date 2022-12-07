@@ -18,4 +18,6 @@ Docker:
 * docker-compose up --build -d
 
 
-http://localhost:8137/
+* http://localhost:8137/
+* http://localhost:8137/admin (admin/admin)
+
