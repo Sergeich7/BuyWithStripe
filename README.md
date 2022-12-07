@@ -4,7 +4,7 @@
 ### При разработки использовал
 Python, Django, Stripe, SQLite, Docker, Docker compose.
 
-### Установка и запуск
+### Установка
 
 * git clone https://github.com/Sergeich7/BuyWithStripe.git
 * cd BuyWithStripe
@@ -17,7 +17,7 @@ Docker:
 или Docker compose:
 * docker-compose up --build -d
 
-
+### Сайт
 * http://localhost:8137/
 * http://localhost:8137/admin (admin/admin)
 
