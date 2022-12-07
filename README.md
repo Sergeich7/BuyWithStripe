@@ -18,4 +18,4 @@ Docker:
 * docker-compose up --build -d
 
 
-http://127.0.0.1:8137/
+http://localhost:8137/
